@@ -29,9 +29,14 @@ class MarcoVentana extends JFrame{
 }
 class M_Ventana implements WindowListener{
 	//tenemos que declarar todos aunque sólo usemos uno
-	public void windowActivated(WindowEvent e) {}
+	public void windowActivated(WindowEvent e) {
+		
+		System.out.println("Ventana activada");
+	}
 	public void windowClosed(WindowEvent e) {}
-	public void windowClosing(WindowEvent e) {}
+	public void windowClosing(WindowEvent e) {
+		System.out.println("Cerrando ventana");
+	}
 	public void windowDeactivated(WindowEvent e) {}
 	public void windowDeiconified(WindowEvent e) {}
 	public void windowIconified(WindowEvent e) {
