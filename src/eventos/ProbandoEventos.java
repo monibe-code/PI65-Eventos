@@ -30,15 +30,28 @@ class MarcoBotones extends JFrame{
 class LaminaBotones extends JPanel implements ActionListener{
 	
 	JButton botonAzul = new JButton("Azul");
+	JButton botonVerde = new JButton("Verde");
+	JButton botonAmarillo = new JButton("Amarillo");
+	
 	
 	public LaminaBotones() {
 		add(botonAzul);
-		botonAzul.addActionListener(this); //ponemos a escuchar a la propia lámina
+		add(botonVerde);
+		add(botonAmarillo);
 		
+		botonAzul.addActionListener(this); //ponemos a escuchar a la propia lámina
+		botonVerde.addActionListener(this);
+		botonAmarillo.addActionListener(this);
 	}
 	//construcción del método de la interfaz ActionListener
 	public void actionPerformed(ActionEvent e) {
+		Object botonPulsado = e.getSource();
+		if (botonPulsado == botonAzul) {
 		setBackground(Color.BLUE);
+		}
+		else if(botonPulsado==botonVerde) {
+			setBackground(Color.GREEN);
+		}else setBackground(Color.YELLOW);
 	}
 	
 }
