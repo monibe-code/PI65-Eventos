@@ -3,6 +3,9 @@ package eventos;
 import javax.swing.*;
 import javax.swing.JFrame;
 
+import java.awt.Color;
+import java.awt.event.*;
+
 public class ProbandoEventos {
 
 	public static void main(String[] args) {
@@ -24,6 +27,18 @@ class MarcoBotones extends JFrame{
 	}
 }
 
-class LaminaBotones extends JPanel{
+class LaminaBotones extends JPanel implements ActionListener{
+	
+	JButton botonAzul = new JButton("Azul");
+	
+	public LaminaBotones() {
+		add(botonAzul);
+		botonAzul.addActionListener(this); //ponemos a escuchar a la propia lámina
+		
+	}
+	//construcción del método de la interfaz ActionListener
+	public void actionPerformed(ActionEvent e) {
+		setBackground(Color.BLUE);
+	}
 	
 }
