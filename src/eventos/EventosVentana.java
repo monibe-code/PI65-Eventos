@@ -37,13 +37,19 @@ class M_Ventana implements WindowListener{
 	public void windowClosing(WindowEvent e) {
 		System.out.println("Cerrando ventana");
 	}
-	public void windowDeactivated(WindowEvent e) {}
-	public void windowDeiconified(WindowEvent e) {}
+	public void windowDeactivated(WindowEvent e) {
+		System.out.println("Ventana desactivada");
+	}
+	public void windowDeiconified(WindowEvent e) {
+		System.out.println("Ventana restaurada");
+	}
 	public void windowIconified(WindowEvent e) {
 		//cuando minimicemos la ventana, se imprime en consola:
 		System.out.println("Ventana minimizada");
 	}
-	public void windowOpened(WindowEvent e) {}
+	public void windowOpened(WindowEvent e) {
+		System.out.println("Ventana abierta");
+	}
 	
 	
 }
