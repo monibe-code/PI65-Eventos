@@ -10,6 +10,13 @@ public class EventosVentana {
 		MarcoVentana mimarco = new MarcoVentana();
 		mimarco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mimarco.setVisible(true);
+		
+		MarcoVentana mimarco2= new MarcoVentana();
+		mimarco2.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		mimarco.setTitle("Ventana 1");
+		mimarco2.setTitle("Ventana 2");
+		mimarco.setBounds(300,300,500,350);
+		mimarco2.setBounds(900,300,500,350);
 
 	}
 
@@ -17,8 +24,8 @@ public class EventosVentana {
 
 class MarcoVentana extends JFrame{
 	public MarcoVentana() {
-		setTitle("Respondiendo");
-		setBounds(300,300,500,350);
+		//setTitle("Respondiendo");
+		//setBounds(300,300,500,350);
 		setVisible(true);
 		//creamos la instancia del oyente
 		M_Ventana oyenteVentana = new M_Ventana();
@@ -33,7 +40,9 @@ class M_Ventana implements WindowListener{
 		
 		System.out.println("Ventana activada");
 	}
-	public void windowClosed(WindowEvent e) {}
+	public void windowClosed(WindowEvent e) {
+		System.out.println("La ventana ha sido cerrada");
+	}
 	public void windowClosing(WindowEvent e) {
 		System.out.println("Cerrando ventana");
 	}
