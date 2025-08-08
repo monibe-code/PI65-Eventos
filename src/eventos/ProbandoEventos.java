@@ -45,7 +45,7 @@ class LaminaBotones extends JPanel implements ActionListener{
 	}
 	//construcción del método de la interfaz ActionListener
 	public void actionPerformed(ActionEvent e) {
-		Object botonPulsado = e.getSource();
+		Object botonPulsado = e.getSource(); //para conocer la fuente de e
 		if (botonPulsado == botonAzul) {
 		setBackground(Color.BLUE);
 		}
