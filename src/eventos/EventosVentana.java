@@ -2,6 +2,7 @@ package eventos;
 
 import javax.swing.JFrame;
 import java.awt.event.*;
+import java.util.EventListener;
 
 public class EventosVentana {
 
@@ -27,38 +28,22 @@ class MarcoVentana extends JFrame{
 		//setTitle("Respondiendo");
 		//setBounds(300,300,500,350);
 		setVisible(true);
-		//creamos la instancia del oyente
-		M_Ventana oyenteVentana = new M_Ventana();
-		//preparamos el marco para recibir el oyente
-		addWindowListener(oyenteVentana);
-		
+//		//creamos la instancia del oyente
+//		M_Ventana oyenteVentana = new M_Ventana();
+//		//preparamos el marco para recibir el oyente
+//		addWindowListener(oyenteVentana);
+		//creamos la instancia dentro del método addWindowListener, simplificando el código:
+		addWindowListener(new M_Ventana());
 	}
 }
-class M_Ventana implements WindowListener{
-	//tenemos que declarar todos aunque sólo usemos uno
-	public void windowActivated(WindowEvent e) {
-		
-		System.out.println("Ventana activada");
-	}
-	public void windowClosed(WindowEvent e) {
-		System.out.println("La ventana ha sido cerrada");
-	}
-	public void windowClosing(WindowEvent e) {
-		System.out.println("Cerrando ventana");
-	}
-	public void windowDeactivated(WindowEvent e) {
-		System.out.println("Ventana desactivada");
-	}
-	public void windowDeiconified(WindowEvent e) {
-		System.out.println("Ventana restaurada");
-	}
+class M_Ventana extends WindowAdapter{
+	/*al heredar de la clase adaptadora 
+	 * Window Adapter, podemos usar sólo los métodos que necesitemos*/
+	
 	public void windowIconified(WindowEvent e) {
 		//cuando minimicemos la ventana, se imprime en consola:
 		System.out.println("Ventana minimizada");
 	}
-	public void windowOpened(WindowEvent e) {
-		System.out.println("Ventana abierta");
-	}
-	
 	
 }
+
