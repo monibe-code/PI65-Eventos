@@ -39,15 +39,28 @@ class PanelAccion extends JPanel{
 		add(new JButton(accionRojo));
 		add(new JButton (accionAzul));
 		
-		//otra forma de crear botones más larga:
-//		JButton botonAmarillo = new JButton("Amarillo");
-//		JButton botonAzul = new JButton("Azul");
-//		JButton botonRojo = new JButton("Rojo");
-//		
-//		add(botonAmarillo);
-//		add(botonAzul);
-//		add(botonRojo);
-//		
+		//creamos mapa de entrada
+		InputMap mapaEntrada=getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
+		
+		//creamos la combinación de teclas
+		//KeyStroke teclaAmarillo = KeyStroke.getKeyStroke("ctrl A");
+		
+		//asignar combinación de teclas a un objeto
+		mapaEntrada.put(KeyStroke.getKeyStroke("ctrl A"), "fondo_amarillo");
+		//podemos asignar varias teclas a un mismo objeto
+		mapaEntrada.put(KeyStroke.getKeyStroke("ctrl T"), "fondo_amarillo");
+		mapaEntrada.put(KeyStroke.getKeyStroke("ctrl B"), "fondo_azul");
+		mapaEntrada.put(KeyStroke.getKeyStroke("ctrl R"), "fondo_rojo");
+		
+		//creamos instancia de ActionMap
+		ActionMap mapaAccion=getActionMap();
+		
+		//asignamos el objeto a la acción con el método put de ActionMap		
+		mapaAccion.put("fondo_amarillo", accionAmarillo);
+		mapaAccion.put("fondo_azul", accionAzul);
+		mapaAccion.put("fondo_rojo", accionRojo);
+		
+		
 	}
 	
 	private class AccionColor extends AbstractAction{
